@@ -13,7 +13,7 @@ def loginView(request):
     user = authenticate(request, username=username, password=password)
 
     if not request.user.is_authenticated:
-        return redirect(f"{LOGIN_URL}?next={request.path}")
+        return redirect('login')
 
     if user is not None:
         login(request, user)
@@ -25,7 +25,7 @@ def loginView(request):
 def signupView(request):
     username = request.POST["username"]
     password = request.POST["password"]
-    
+
     
 
 def logoutView(request):
